@@ -2,7 +2,7 @@
 version: 1
 
 project:
-  name: com.github.pop-os.popsicle
+  name: com.github.spwnix.spwn-language
   version_command: git describe --tags
 
 build:
@@ -12,11 +12,6 @@ build:
       - pushd "$PROJECT_ROOT"
       - make install DESTDIR="$(readlink -f "$BUILD_DIR"/AppDir)" prefix=/usr
       - popd
-
-scripts:
-  post_build:
-    # just USB Flasher might make sense on Pop!_OS, but not on other distros
-    - sed -i 's|Name=USB Flasher|Name=Popsicle USB Flasher|' "$BUILD_DIR"/AppDir/usr/share/applications/com.system76.Popsicle.desktop
 
 appimage:
   linuxdeploy:
